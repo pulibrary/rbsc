@@ -428,3 +428,8 @@ padding-right: 13px;
   text-align: center;
   color: #666666;
 }
+
+#welcome {
+  font-size:  1.4em;
+  line-height: 1.6em;
+}
