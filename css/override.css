@@ -406,7 +406,7 @@ padding-right: 13px;
 .grid-text{
   background: none;
   bottom: 0;
-  height: 50px;
+  height: 100px;
   left: 0;
   margin: auto;
   position: absolute;
@@ -427,4 +427,10 @@ padding-right: 13px;
   right: 0;
   text-align: center;
   color: #666666;
+  letter-spacing: .1em;
+}
+
+#welcome {
+  font-size:  1.4em;
+  line-height: 1.6em;
 }
