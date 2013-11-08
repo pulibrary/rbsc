@@ -430,6 +430,21 @@ padding-right: 13px;
   letter-spacing: .1em;
 }
 
+.grid-text-sub h2{
+  background: none;
+  bottom: 0;
+  height: 80px;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: center;
+  color: #666666;
+  letter-spacing: .1em;
+  font-size: 14px;
+}
+
 #welcome {
   font-size:  1.4em;
   line-height: 1.6em;
