@@ -430,7 +430,71 @@ padding-right: 13px;
   letter-spacing: .1em;
 }
 
+.grid-text-sub h2{
+  background: none;
+  bottom: 0;
+  height: 80px;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: center;
+  color: #666666;
+  letter-spacing: .1em;
+  font-size: 14px;
+}
+
 #welcome {
   font-size:  1.4em;
   line-height: 1.6em;
+}
+
+#welcome-mudd {
+  font-size:  1.2em;
+  line-height: 1.4em;
+}
+
+.social-media {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  font: inherit;
+}
+
+.copyright {
+    font-family: Arial,
+         "Helvetica Neue",
+         Helvetica,
+         sans-serif;
+}
+
+h2.pul-title {
+font-size: 1.2em;
+color: #333333;
+margin-bottom: 0.8em;
+font-family: "Droid Serif",serif;
+font-weight: normal;
+
+}
+
+#pu-footer-logo {
+  margin-top: 1.0em;
+}
+
+#university-copyright-footer {
+   font-size: 0.8em;
+   margin-top: 1.0em;
+}
+
+#footer address {
+  font-size: 12px;
+  margin-top:5px;
+}
+
+.v-rule {
+  border-left: 1px solid #fff; 
 }
