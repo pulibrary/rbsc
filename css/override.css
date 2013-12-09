@@ -533,4 +533,6 @@ font-weight: normal;
 .media-body small {
   color: #8c8c8c;
 }
-
+.navbar-collapse .form-control {
+  margin-left: 10px;
+}
