@@ -392,6 +392,12 @@ padding-right: 13px;
   }
 }
 
+@media (max-width: 768px) {
+  .thinbar .nav {
+    display:none;
+  }
+}
+
 /*
 .img:hover {
   border-width:1px;
