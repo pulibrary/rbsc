@@ -16,6 +16,15 @@
     <link href='http://fonts.googleapis.com/css?family=Wire+One' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Droid+Serif:700,700italic,400,400italic' rel='stylesheet' type='text/css'>
     
+    <!-- Facebook Share -->
+      <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "http://connect.facebook.net/en_US/all.js#xfbml=1&appId=324502680964248";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+    
     <!-- Custom styles for this template -->
     <link href="css/override.css" rel="stylesheet">
 
@@ -27,17 +36,7 @@
   </head>
 
   <body>
-    <!-- Facebook Share -->
-        <div id="fb-root"></div>
-          <script>(function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=324502680964248";
-            fjs.parentNode.insertBefore(js, fjs);
-          }(document, 'script', 'facebook-jssdk'));</script>
-        </div>
-    
+    <div id="fb-root"></div>
      <!-- Wrap all page content here -->
     <div id="wrap">
       <div class="thinbar">
@@ -178,7 +177,7 @@
                   </li>
                   <li>
                     <a href="#" data-toggle="collapse" data-target="#publicpolicy">Books</a>
-                    <ul id="publicpolicy" class="subnav collapse">
+                    <ul id="publicpolicy" class="subnav in">
                       <li><a href="#rbsc">Ornamental Groups</a></li>
                       <li><a href="#rbsc">Oriental Scenery</a></li>
                       <li><a href="#rbsc">Ionian Islands</a></li>
@@ -187,7 +186,7 @@
                   </li>
                   <li class="">
                     <a href="#" data-toggle="collapse" data-target="#rbsc">Illustrations</a>
-                    <ul id="rbsc" class="subnav collapse">
+                    <ul id="rbsc" class="subnav in">
                       <li><a href="#rbsc">Ornamental Groups</a></li>
                       <li><a href="#rbsc">Oriental Scenery</a></li>
                       <li><a href="#rbsc">Ionian Islands</a></li>
@@ -212,46 +211,43 @@
             <p class="desc">By the mid-nineteenth century, the market for color plate book began to decline. Photography had replaced the hard work of producing accurate views while revealing the unpleasant parts of colonial life which color plate books did not show.
             </p>
             <p class="desc">These illustrations come from British color plate books published between 1775 and 1898 and collected by Leonard L. Milberg, Class of 1953.</p>
-            
-            
+            <hr/>
+            <ul class="pager">
+              <!--<li class="previous"><a href="#">&larr; About</a></li>-->
+              <li class="next"><a href="#" style="text-align: right;"><span style="color:#999">Next Section &rarr;</span><br/>Books</a></li>
+            </ul>
           </div>
           
           <div id="right-col" class="col-md-4">
             <div class="addthis_toolbox addthis_default_style " style="margin-top:-20px;">
               <a href="https://twitter.com/share" class="twitter-share-button" data-via="sdellis">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-            <div class="fb-share-button" data-href="http://developers.facebook.com/docs/plugins/" data-type="button_count"></div>
-            <!-- Blog Roll -->
+              <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+              <img src="img/fb.png" alt="Share this on Facebook!" style="display: inline-block; margin-top: -12px; margin-left: -20px;">
+            </div>
+            <!-- Blog Roll <div class="fb-share-button" data-href="http://developers.facebook.com/docs/plugins/" data-type="button_count"></div>-->
             <div class="dottedfloat"></div>
-            <h4><span class="glyphicon glyphicon-bullhorn"></span> New and Notable</h4>
+            <h4><span class="glyphicon glyphicon-eye-open"></span> Other Exhibits by Rare Books Division</h4>
             <div class="dottedfloat"></div>
             
-            <div class="row odd">
-            <h5><a href="">Fitzgerald's Princeton Novel Goes Online</a></h5>
-            <small>Posted on September 11, 2013 by Don Skemer</small>
-            <p>F. Scott Fitzgerald (1896-1940), Class of 1917,  entered Princeton a <a class="external" href="foo">century</a> ago. His first day of classes was on his birthday,
-            'September 24, 1913. Marking this centennial, the Princeton University Library has digitized Fitzgerald's manuscripts and typescripts
-            of his autobiographical first novel, This Side of Paradise (1920), from the F. Scott Fitzgerald Papers, in the Manuscripts Division,
-            Department of Rare Books and Special Collections, Princeton University Library:  http://pudl.princeton.edu/collections/pudl0044</p>
+            <div class="media">
+              <a class="pull-left" href="#">
+                <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACsUlEQVR4Xu2Y24upYRTGl0PI0JSimHDjMIVETVMzpvzrziLSTIkiLpTcjJLzcfaziuz2Njufsb8La93o+3jX+65nHX55NZ+fnzu6YdOIAFIB0gIyA254BpIMQaGAUEAoIBQQCtywAoJBwaBgUDAoGLxhCMifIcGgYFAwKBgUDAoGb1iBizHYbDap3+/Tbrcjp9NJwWCQNBrNQdJflKF6vU5ms5lisdhv353S/Ro+T+11kQCNRoN6vR7p9Xr2v16vyev1kt/v52eIkkql+L3BYKBEIkFarfbberuGz+82VCzAZrOhdDrNGX17e6PVakXdbpesVis9PDzwnq1Wi9/BTCYTvb6+0mQyoff3d9LpdBSPx2k8HhOCNhqNFIlEKJvNnu3zuOLO7WbFAiyXSz7sdrvloOfzObdAIBDgM8xmM8rlcuTxeGg0GtF0OmWhcNhKpULD4ZBsNhuvw3eoGqxX6vPcwPe/VywAertarbIftADKHIYgQqEQB4nAk8kklUolWiwWBwGOxcOa+/t7enp6okt8/ncBkOF8Ps+l+/LywlksFovc6+FwmMW5u7sjt9tN7XabK8Xn8/EzrNPp8HvY8/MzV9GlPpWIoLgCkHHMAPQ2BNg/Q4DHx0eq1Wp/nAcDEBWB4ZjJZA5VY7fbKRqNHnwo8fmv4XpKHMUCIAhUALLmcrn4E33tcDi4AlDmMBysXC5zcMg0gvv4+KDBYEAWi4UrB9WBAYi1Sn0qyT7WKBYAizHACoUCgQgwtAN6GUEeG1oDAoACmAsQZE8PCAHuY47saXKuT1UocBwgUAZDRn/KruHzb2e7qAJ+Klg1/YgAciMkN0JyIyQ3QmpOYbX3FgoIBYQCQgGhgNqTWM39hQJCAaGAUEAooOYUVntvoYBQQCggFBAKqD2J1dxfKHDrFPgCDLCNn09hb34AAAAASUVORK5CYII=" style="width: 64px; height: 64px;">
+              </a>
+              <div class="media-body">
+                <h4 class="media-heading">Ancient World</h4>
+                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+              </div>
+            </div>
+            <div class="media">
+              <a class="pull-left" href="#">
+                <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACsUlEQVR4Xu2Y24upYRTGl0PI0JSimHDjMIVETVMzpvzrziLSTIkiLpTcjJLzcfaziuz2Njufsb8La93o+3jX+65nHX55NZ+fnzu6YdOIAFIB0gIyA254BpIMQaGAUEAoIBQQCtywAoJBwaBgUDAoGLxhCMifIcGgYFAwKBgUDAoGb1iBizHYbDap3+/Tbrcjp9NJwWCQNBrNQdJflKF6vU5ms5lisdhv353S/Ro+T+11kQCNRoN6vR7p9Xr2v16vyev1kt/v52eIkkql+L3BYKBEIkFarfbberuGz+82VCzAZrOhdDrNGX17e6PVakXdbpesVis9PDzwnq1Wi9/BTCYTvb6+0mQyoff3d9LpdBSPx2k8HhOCNhqNFIlEKJvNnu3zuOLO7WbFAiyXSz7sdrvloOfzObdAIBDgM8xmM8rlcuTxeGg0GtF0OmWhcNhKpULD4ZBsNhuvw3eoGqxX6vPcwPe/VywAertarbIftADKHIYgQqEQB4nAk8kklUolWiwWBwGOxcOa+/t7enp6okt8/ncBkOF8Ps+l+/LywlksFovc6+FwmMW5u7sjt9tN7XabK8Xn8/EzrNPp8HvY8/MzV9GlPpWIoLgCkHHMAPQ2BNg/Q4DHx0eq1Wp/nAcDEBWB4ZjJZA5VY7fbKRqNHnwo8fmv4XpKHMUCIAhUALLmcrn4E33tcDi4AlDmMBysXC5zcMg0gvv4+KDBYEAWi4UrB9WBAYi1Sn0qyT7WKBYAizHACoUCgQgwtAN6GUEeG1oDAoACmAsQZE8PCAHuY47saXKuT1UocBwgUAZDRn/KruHzb2e7qAJ+Klg1/YgAciMkN0JyIyQ3QmpOYbX3FgoIBYQCQgGhgNqTWM39hQJCAaGAUEAooOYUVntvoYBQQCggFBAKqD2J1dxfKHDrFPgCDLCNn09hb34AAAAASUVORK5CYII=" style="width: 64px; height: 64px;">
+              </a>
+              <div class="media-body">
+                <h4 class="media-heading">Ethiopic Manuscripts</h4>
+                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+              </div>
             </div>
             
-            <div class="row even">
-            <h5><a href="">Fitzgerald's Princeton Novel Goes Online</a></h5>
-            <small>Posted on September 11, 2013 by Don Skemer</small>
-            <p>F. Scott Fitzgerald (1896-1940), Class of 1917,  entered Princeton a century ago. His first day of classes was on his birthday,
-            'September 24, 1913. Marking this centennial, the Princeton University Library has digitized Fitzgerald's manuscripts and typescripts
-            of his autobiographical first novel, This Side of Paradise (1920), from the F. Scott Fitzgerald Papers, in the Manuscripts Division,
-            Department of Rare Books and Special Collections, Princeton University Library:  http://pudl.princeton.edu/collections/pudl0044</p>
-            </div>
-            
-            <div class="row odd">
-            <h5><a href="">Fitzgerald's Princeton Novel Goes Online</a></h5>
-            <small>Posted on September 11, 2013 by Don Skemer</small>
-            <p>F. Scott Fitzgerald (1896-1940), Class of 1917,  entered Princeton a century ago. His first day of classes was on his birthday,
-            'September 24, 1913. Marking this centennial, the Princeton University Library has digitized Fitzgerald's manuscripts and typescripts
-            of his autobiographical first novel, This Side of Paradise (1920), from the F. Scott Fitzgerald Papers, in the Manuscripts Division,
-            Department of Rare Books and Special Collections, Princeton University Library:  http://pudl.princeton.edu/collections/pudl0044</p>
-            </div>
           </div>
         </div>
       </div>
