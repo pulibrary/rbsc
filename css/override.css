@@ -248,9 +248,9 @@ background-repeat: repeat-x;
 .bs-sidebar .nav > .active:hover > a,
 .bs-sidebar .nav > .active:focus > a {
   font-weight: bold;
-  color: #563d7c;
-  background-color: transparent;
-  border-right: 1px solid #563d7c;
+  color: #e5807b;
+  background-color: #e5e3e9;
+  border-right: 1px solid #e5807b;
 }
 
 /* Nav: second level (shown on .active) */
@@ -263,6 +263,13 @@ background-repeat: repeat-x;
   padding-bottom: 3px;
   padding-left: 30px;
   font-size: 90%;
+}
+
+
+.bs-sidebar .nav > li > a {
+display: block;
+color: #716b7a;
+padding: 5px 20px;
 }
 
 /* Show and affix the side nav when space allows it */
