@@ -557,3 +557,9 @@ font-weight: normal;
 .navbar-collapse .form-control {
   margin-left: 10px;
 }
+
+.fb_iframe_widget {
+  display: inline-block;
+  position: absolute;
+  margin-left: -20px;
+}
