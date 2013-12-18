@@ -16,14 +16,6 @@
     <link href='http://fonts.googleapis.com/css?family=Wire+One' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Droid+Serif:700,700italic,400,400italic' rel='stylesheet' type='text/css'>
     
-    <!-- Facebook Share -->
-      <script>(function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "http://connect.facebook.net/en_US/all.js#xfbml=1&appId=324502680964248";
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));</script>
     
     <!-- Custom styles for this template -->
     <link href="css/override.css" rel="stylesheet">
@@ -36,7 +28,6 @@
   </head>
 
   <body>
-    <div id="fb-root"></div>
      <!-- Wrap all page content here -->
     <div id="wrap">
       <div class="thinbar">
@@ -165,6 +156,7 @@
             <img src="img/exhibit-banner.jpg" width="1140px" alt="Firestone Library: Home of Manuscripts Division" style="margin-bottom:40px">
           </div>
         </div>
+        
         <div class="row">
           <div class="col-md-3 leftcol">
             <div class="bs-sidebar hidden-print">
@@ -198,57 +190,57 @@
                   </li>
               </ul>
             </div>
-            </div>
-
-          <div id="middle-col" class="col-md-5">
-            <h4 style="margin-top:-20px;">Introduction</h4>
-            <p class="desc">In the late eighteenth century, new methods of printing made publishing illustrated books much easier. Color illustrations no longer had to be printed in monochrome and colored by hand, which meant that publishers were able to produce large illustrated books that were intended for viewing, not reading. 
-
-            <p class="desc">Most of these books were published in London, but the artists whose drawings and paintings illustrated them traveled all over the world. Some of them made long and occasionally dangerous trips to sketch their subjects, sometimes giving the public its first view of an unfamiliar landscape. 
-            </p>
-            <p class="desc">Color plate books appealed to both those who wanted to commemorate their years abroad and those who wanted a view of exotic landscapes they would never visit. Books of domestic British scenes or newly-acquired colonial territory allowed owners to take pride in their country and its expanding empire. Artists and publishers made an effort to satisfy a public which wanted both absolute accuracy and picturesque scenes.
-            </p>
-            <p class="desc">By the mid-nineteenth century, the market for color plate book began to decline. Photography had replaced the hard work of producing accurate views while revealing the unpleasant parts of colonial life which color plate books did not show.
-            </p>
-            <p class="desc">These illustrations come from British color plate books published between 1775 and 1898 and collected by Leonard L. Milberg, Class of 1953.</p>
-            <hr/>
-            <ul class="pager">
-              <!--<li class="previous"><a href="#">&larr; About</a></li>-->
-              <li class="next"><a href="#" style="text-align: right;"><span style="color:#999">Next Section &rarr;</span><br/>Books</a></li>
-            </ul>
           </div>
           
-          <div id="right-col" class="col-md-4">
-            <div class="addthis_toolbox addthis_default_style " style="margin-top:-20px;">
-              <a href="https://twitter.com/share" class="twitter-share-button" data-via="sdellis">Tweet</a>
-              <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-              <img src="img/fb.png" alt="Share this on Facebook!" style="display: inline-block; margin-top: -12px; margin-left: -20px;">
-            </div>
-            <!-- Blog Roll <div class="fb-share-button" data-href="http://developers.facebook.com/docs/plugins/" data-type="button_count"></div>-->
-            <div class="dottedfloat"></div>
-            <h4><span class="glyphicon glyphicon-eye-open"></span> Other Exhibits by Rare Books Division</h4>
-            <div class="dottedfloat"></div>
+          <div id="middle-col" class="col-md-9">
             
-            <div class="media">
-              <a class="pull-left" href="#">
-                <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACsUlEQVR4Xu2Y24upYRTGl0PI0JSimHDjMIVETVMzpvzrziLSTIkiLpTcjJLzcfaziuz2Njufsb8La93o+3jX+65nHX55NZ+fnzu6YdOIAFIB0gIyA254BpIMQaGAUEAoIBQQCtywAoJBwaBgUDAoGLxhCMifIcGgYFAwKBgUDAoGb1iBizHYbDap3+/Tbrcjp9NJwWCQNBrNQdJflKF6vU5ms5lisdhv353S/Ro+T+11kQCNRoN6vR7p9Xr2v16vyev1kt/v52eIkkql+L3BYKBEIkFarfbberuGz+82VCzAZrOhdDrNGX17e6PVakXdbpesVis9PDzwnq1Wi9/BTCYTvb6+0mQyoff3d9LpdBSPx2k8HhOCNhqNFIlEKJvNnu3zuOLO7WbFAiyXSz7sdrvloOfzObdAIBDgM8xmM8rlcuTxeGg0GtF0OmWhcNhKpULD4ZBsNhuvw3eoGqxX6vPcwPe/VywAertarbIftADKHIYgQqEQB4nAk8kklUolWiwWBwGOxcOa+/t7enp6okt8/ncBkOF8Ps+l+/LywlksFovc6+FwmMW5u7sjt9tN7XabK8Xn8/EzrNPp8HvY8/MzV9GlPpWIoLgCkHHMAPQ2BNg/Q4DHx0eq1Wp/nAcDEBWB4ZjJZA5VY7fbKRqNHnwo8fmv4XpKHMUCIAhUALLmcrn4E33tcDi4AlDmMBysXC5zcMg0gvv4+KDBYEAWi4UrB9WBAYi1Sn0qyT7WKBYAizHACoUCgQgwtAN6GUEeG1oDAoACmAsQZE8PCAHuY47saXKuT1UocBwgUAZDRn/KruHzb2e7qAJ+Klg1/YgAciMkN0JyIyQ3QmpOYbX3FgoIBYQCQgGhgNqTWM39hQJCAaGAUEAooOYUVntvoYBQQCggFBAKqD2J1dxfKHDrFPgCDLCNn09hb34AAAAASUVORK5CYII=" style="width: 64px; height: 64px;">
-              </a>
-              <div class="media-body">
-                <h4 class="media-heading">Ancient World</h4>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-              </div>
+            <div class="row">
+                <div id="middle-col" class="col-md-7">
+                  <h3 style="margin-top:-20px; margin-bottom:-20px;">Introduction</h3>
+                </div>
+                <div id="right-col" class="col-md-5">
+                  <div class="addthis_toolbox addthis_default_style pull-right" style="margin-top:-20px; margin-bottom:-20px;">
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-via="sdellis">Tweet</a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                    <img src="img/fb.png" alt="Share this on Facebook!" style="display: inline-block; margin-top: -12px; margin-left: -20px;">
+                  </div>
+                </div>
             </div>
-            <div class="media">
-              <a class="pull-left" href="#">
-                <img class="media-object" data-src="holder.js/64x64" alt="64x64" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACsUlEQVR4Xu2Y24upYRTGl0PI0JSimHDjMIVETVMzpvzrziLSTIkiLpTcjJLzcfaziuz2Njufsb8La93o+3jX+65nHX55NZ+fnzu6YdOIAFIB0gIyA254BpIMQaGAUEAoIBQQCtywAoJBwaBgUDAoGLxhCMifIcGgYFAwKBgUDAoGb1iBizHYbDap3+/Tbrcjp9NJwWCQNBrNQdJflKF6vU5ms5lisdhv353S/Ro+T+11kQCNRoN6vR7p9Xr2v16vyev1kt/v52eIkkql+L3BYKBEIkFarfbberuGz+82VCzAZrOhdDrNGX17e6PVakXdbpesVis9PDzwnq1Wi9/BTCYTvb6+0mQyoff3d9LpdBSPx2k8HhOCNhqNFIlEKJvNnu3zuOLO7WbFAiyXSz7sdrvloOfzObdAIBDgM8xmM8rlcuTxeGg0GtF0OmWhcNhKpULD4ZBsNhuvw3eoGqxX6vPcwPe/VywAertarbIftADKHIYgQqEQB4nAk8kklUolWiwWBwGOxcOa+/t7enp6okt8/ncBkOF8Ps+l+/LywlksFovc6+FwmMW5u7sjt9tN7XabK8Xn8/EzrNPp8HvY8/MzV9GlPpWIoLgCkHHMAPQ2BNg/Q4DHx0eq1Wp/nAcDEBWB4ZjJZA5VY7fbKRqNHnwo8fmv4XpKHMUCIAhUALLmcrn4E33tcDi4AlDmMBysXC5zcMg0gvv4+KDBYEAWi4UrB9WBAYi1Sn0qyT7WKBYAizHACoUCgQgwtAN6GUEeG1oDAoACmAsQZE8PCAHuY47saXKuT1UocBwgUAZDRn/KruHzb2e7qAJ+Klg1/YgAciMkN0JyIyQ3QmpOYbX3FgoIBYQCQgGhgNqTWM39hQJCAaGAUEAooOYUVntvoYBQQCggFBAKqD2J1dxfKHDrFPgCDLCNn09hb34AAAAASUVORK5CYII=" style="width: 64px; height: 64px;">
-              </a>
-              <div class="media-body">
-                <h4 class="media-heading">Ethiopic Manuscripts</h4>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+            
+            <div class="row">
+              <div id="middle-col" class="col-md-12">
+                <hr/>
               </div>
             </div>
             
-          </div>
+            <div class="row"> 
+              <div id="middle-col" class="col-md-7">
+                <p class="desc">In the late eighteenth century, new methods of printing made publishing illustrated books much easier. Color illustrations no longer had to be printed in monochrome and colored by hand, which meant that publishers were able to produce large illustrated books that were intended for viewing, not reading. 
+    
+                <p class="desc">Most of these books were published in London, but the artists whose drawings and paintings illustrated them traveled all over the world. Some of them made long and occasionally dangerous trips to sketch their subjects, sometimes giving the public its first view of an unfamiliar landscape. 
+                </p>
+                <p class="desc">Color plate books appealed to both those who wanted to commemorate their years abroad and those who wanted a view of exotic landscapes they would never visit. Books of domestic British scenes or newly-acquired colonial territory allowed owners to take pride in their country and its expanding empire. Artists and publishers made an effort to satisfy a public which wanted both absolute accuracy and picturesque scenes.
+                </p>
+                <p class="desc">By the mid-nineteenth century, the market for color plate book began to decline. Photography had replaced the hard work of producing accurate views while revealing the unpleasant parts of colonial life which color plate books did not show.
+                </p>
+                <p class="desc">These illustrations come from British color plate books published between 1775 and 1898 and collected by Leonard L. Milberg, Class of 1953.</p>
+              </div>
+              <div id="right-col" class="col-md-5">
+                <img src="img/exhibit-thumb.jpg" alt="some image" class="img-thumbnail">
+                <small>Example of British color plate books published between 1775 and 1898 and collected by Leonard L. Milberg, Class of 1953.</small>  
+              </div>
+            </div>
+          
+            <div class="row">
+              <div id="middle-col" class="col-md-12">
+                <hr/>
+                <ul class="pager">
+                  <!--<li class="previous"><a href="#">&larr; About</a></li>-->
+                  <li class="next"><a href="#" style="text-align: right;"><span style="color:#999">Next Section &rarr;</span><br/>Books</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>   
         </div>
       </div>
     </div>
