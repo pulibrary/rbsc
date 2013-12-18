@@ -226,7 +226,7 @@
                 <p class="desc">These illustrations come from British color plate books published between 1775 and 1898 and collected by Leonard L. Milberg, Class of 1953.</p>
               </div>
               <div id="right-col" class="col-md-5">
-                <img src="img/exhibit-thumb.jpg" alt="some image" class="img-thumbnail">
+                <a href=""><img src="img/exhibit-thumb.jpg" alt="some image" class="img-thumbnail thumb-click"></a>
                 <small>Example of British color plate books published between 1775 and 1898 and collected by Leonard L. Milberg, Class of 1953.</small>  
               </div>
             </div>
@@ -325,6 +325,14 @@
           $( this ).addClass( "media-hover" );
         }, mouseleave: function() {
           $( this ).removeClass( "media-hover" );
+        }
+      });
+      
+      $( ".thumb-click" ).on({
+        mouseenter: function() {
+          $( this ).addClass( "thumb-active" );
+        }, mouseleave: function() {
+          $( this ).removeClass( "thumb-active" );
         }
       });
       

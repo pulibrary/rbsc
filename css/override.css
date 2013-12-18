@@ -558,3 +558,7 @@ font-weight: normal;
   margin-left: 10px;
 }
 
+.thumb-active {
+  border: 1px solid #428bca;
+  cursor: pointer;
+}
