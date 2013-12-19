@@ -220,7 +220,7 @@
               </div>
               <div id="right-col" class="col-md-5">
                 <!--<a href=""><img src="img/exhibit-thumb.jpg" alt="some image" class="img-thumbnail thumb-click"></a>-->
-                <a href=""><img src="http://libimages.princeton.edu/loris/pudl0076/252650/00000001.jp2/full/300,/0/native.jpg" alt="some image" class="img-thumbnail thumb-click"></a><br/>
+                <a href="" class="resource" data-toggle="modal" data-target="#myModal"><img src="http://libimages.princeton.edu/loris/pudl0076/252650/00000001.jp2/full/300,/0/native.jpg" alt="some image" class="img-thumbnail thumb-click"></a><br/>
                 <small>The inscription "To my fellow citizens of the United States of America", found in the edition printed for Barrois senior in the same year, and also in the French edition of 1794, is here omitted.</small>  
               </div>
             </div>
@@ -298,21 +298,29 @@
         <p class="text-muted credit">&#9400; 2013 The Trustees of Princeton University. All rights reserved.</p>
       </div>
     </div>
+    
+    <!-- Modal Stuff -->
+    <div id="lightbox"></div>
+
+    <div id="container">
+        <h3 id="imgZoomLabel">The age of reason : being an investigation of true and fabulous theology</h3>
+        <div id="viewer" class="openseadragon"></div>
+        <div id="container-footer">
+         <a id="rotate" class="btn" href="#"><i class="icon-repeat"></i></a>
+           <button class="btn" id="closeModal">Close</button>
+         </div>
+    </div>
+    
+
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/osd/openseadragon.min.js"></script>
+    
     <script>
-      url = 'http://loremwhitman.com/api/paragraphs/5';
-      
-      $.getJSON(url, function(data) {
-        
-        $.each(data.whitman, function(index, value) {
-          $( ".page-header" ).append( "<p>" + value + "</p>" );
-        });
-        
-      });
       
       $( "div.media" ).on({
         mouseenter: function() {
@@ -329,6 +337,87 @@
           $( this ).removeClass( "thumb-active" );
         }
       });
+      
+      // Open Sea Dragon Stuff
+      
+      function closeModal() {
+              $("#lightbox").fadeOut( "slow" );
+              $("#container").fadeOut( "slow" );
+      }
+
+      $("#closeModal").on( "click", closeModal );
+      $("#lightbox").on( "click", closeModal );
+      
+      $(".resource").on("click", function(event){
+              event.preventDefault();
+              $("#lightbox").fadeIn( "slow" );
+              $("#container").fadeIn( "slow" );
+      });
+
+      
+      var SERVER = 'http://libimages.princeton.edu/loris/'
+      var INFO = '/info.json'
+      
+      var SAMPLES = [
+        'pudl0001%2F5138415%2F00000011.jp2',
+        'pudl0004%2Fcharter%2F00000001.jp2',
+        'pudl0010%2F2005%2F00650%2F00000001.jp2',
+        'pudl0011%2F1745946%2F00000008.jp2',
+        'pudl0015%2F2006%2F01347%2F00000001.jp2',
+        'pudl0017%2Fwc064%2FX%2FX0028%2F00000001.jp2',
+        'pudl0022%2F4623565%2F00000001.jp2',
+        'pudl0032%2F62g%2F00000007.jp2',
+        'pudl0033%2F2007%2F03876%2F00000001.jp2',
+        'pudl0052%2F6131707%2F00000001.jp2',
+        'pudl0071%2F4055459%2F01%2F00000030.jp2',
+        'pudl0072%2F3947894%2F01%2F00000082.jp2',
+        'pudl0100%2Fposters%2Feg1_0484%2F00000001.jp2'
+      ]
+      
+      var height = jQuery(window).height() / 2;
+      var width = jQuery(window).width() / 2;
+      
+      $('#viewer').width( width );
+      $('#viewer').height( height );
+      $('#container').width( width );
+      $('#container').height( height );
+      $('.toolbar').width( width );
+      
+      // Read a page's GET URL variables and return them as an associative array.
+      function getUrlVars() {
+        var vars = [], hash;
+        var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+        for(var i = 0; i < hashes.length; i++) {
+          hash = hashes[i].split('=');
+          vars.push(hash[0]);
+          vars[hash[0]] = hash[1];
+        }
+        return vars;
+      }
+      
+      var osd_config = {
+        id: "viewer",
+        prefixUrl: "images/",
+        preserveViewport: true,
+        showNavigator:  true,
+        visibilityRatio: 1,
+        minZoomLevel: 1,
+        tileSources: []
+      }
+      
+      
+      feedMe = getUrlVars()['feedme'];
+      
+      if (feedMe) {
+        osd_config['tileSources'].push(SERVER + feedMe + INFO);
+      } else {
+        for (c=0; c<SAMPLES.length; c++) {
+          osd_config['tileSources'].push(SERVER + SAMPLES[c] + INFO);
+        }
+      }
+      
+      OpenSeadragon(osd_config);
+      
       
     </script>
   </body>
