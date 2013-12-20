@@ -581,33 +581,44 @@ font-weight: normal;
 #container {
     /* remove these if going with transparent png and nesting inside lightbox */
     display: none;
-    position: fixed;
-    top: 0;
-    left: 25%;
+    
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 
+    margin: auto;
+    
     min-height: 500px;
-    
-    margin-top:60px; /*centers the div horizontally in all browsers (except IE)*/
-    
     background:#fff;
     text-align:left; /*resets text alignment from body tag */
-    border:1px solid #ccc;
-    border-top:none;
-    padding:25px;
+
+
     border-radius:5px 5px 5px 5px;
     -moz-border-radius:5px 5px 5px 5px;
     -webkit-border-radius: 5px 5px 5px 5px;
     z-index:2002;
 }
 
+#container h3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 15px;
+}
+
 #container-footer {
-padding: 14px 15px 15px;
+padding: 15px;
 margin-bottom: 20px;
 text-align: right;
-border-radius: 5px 5px 5px 5px;
--moz-border-radius: 5px 5px 5px 5px;
--webkit-border-radius: 5px 5px 5px 5px;
+border:1px solid #ccc;
+border-radius: 0px 0px 5px 5px;
+-moz-border-radius: 0px 0px 5px 5px;
+-webkit-border-radius: 0px 0px 5px 5px;
 background-color: #fff;
-margin-left: -26px;
-margin-right: -26px;
+}
+
+#viewer {
+  color: white;
+  background-color: #333333;
 }

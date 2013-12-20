@@ -30,6 +30,7 @@
   <body>
      <!-- Wrap all page content here -->
     <div id="wrap">
+    <header id="header" class="header ">
       <div class="thinbar">
             <div class="container">
                 <a href="http://www.princeton.edu">
@@ -148,7 +149,7 @@
           </div><!--/.nav-collapse -->
         </div>
       </div>
-
+    </header>
       <!-- Begin page content -->
       <div id="main" class="container">
         <div class="row">
@@ -229,7 +230,7 @@
               <div id="middle-col" class="col-md-12">
                 <hr/>
                 <ul class="pager">
-                  <!--<li class="previous"><a href="#">&larr; About</a></li>-->
+                  <li class="previous"><a href="#"><span style="color:#999">&larr; Previous Section</span><br/>Introduction</a></li>
                   <li class="next"><a href="#" style="text-align: right;"><span style="color:#999">Next Section &rarr;</span><br/>Books</a></li>
                 </ul>
               </div>
@@ -319,8 +320,18 @@
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/osd/openseadragon.min.js"></script>
+    <script src="js/headroom.min.js"></script>
     
     <script>
+      
+      //$("#header").headroom();
+      
+      // grab an element
+      var myElement = document.querySelector("header");
+      // construct an instance of Headroom, passing the element
+      var headroom  = new Headroom(myElement);
+      // initialise
+      headroom.init(); 
       
       $( "div.media" ).on({
         mouseenter: function() {
@@ -354,6 +365,9 @@
               $("#container").fadeIn( "slow" );
       });
 
+      var c = $('#container');
+      var v = $('#viewer');
+      var cf = $('#container-footer');
       
       var SERVER = 'http://libimages.princeton.edu/loris/'
       var INFO = '/info.json'
@@ -374,14 +388,15 @@
         'pudl0100%2Fposters%2Feg1_0484%2F00000001.jp2'
       ]
       
-      var height = jQuery(window).height() / 2;
-      var width = jQuery(window).width() / 2;
+      var height = Math.floor(jQuery(window).height() / 2);
+      var width = Math.floor(jQuery(window).width() / 2);
       
-      $('#viewer').width( width );
-      $('#viewer').height( height );
-      $('#container').width( width );
-      $('#container').height( height );
-      $('.toolbar').width( width );
+      v.width( width );
+      v.height( height );
+      c.width( width );
+      c.height( height );
+      cf.width( width );
+      //$('.toolbar').width( width );
       
       // Read a page's GET URL variables and return them as an associative array.
       function getUrlVars() {

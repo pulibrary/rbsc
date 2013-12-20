@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)http://wicky.nillia.ms/headroom.js/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Headroom.js</title>
+    <meta name="viewport" content="width=device-width">
+  
+    <style>
+
+
+.header {
+    background-color: #292f36;
+}
+
+.header__link {
+    color: #fff;
+    text-decoration: none;
+    border: 0;
+}
+
+.header__link:focus {
+    outline: 0;
+    background-color: rgba(78,205,196,0.1);
+}
+
+.header__link:hover .icon {
+    color: #4ecdc4;
+}
+
+.header--fixed {
+    position: fixed;
+    z-index: 10;
+    right: 0;
+    left: 0;
+    top: 0;
+}
+
+.footer {
+    background-color: #292f36;
+    border-top: 3px solid #4ecdc4;
+    box-shadow: 0 2px 2px -1px #292f36 inset;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.heading {
+    border-bottom: 3px solid #4ecdc4;
+    margin-bottom: 1em;
+    padding-bottom: .25em;
+}
+
+.sub-heading {
+    border-bottom: 1px solid rgba(41,47,54,0.1);
+}
+
+.feature {
+    background-color: #4ecdc4;
+    padding: 5em 0 2em 0;
+}
+
+.feature a {
+    text-decoration: underline;
+    color: #292f36;
+}
+
+.feature strong {
+    color: #fff;
+    font-weight: normal;
+    text-shadow: 1px 1px 1px #292f36;
+}
+
+.btt {
+    display: none;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    font-size: .9em;
+    -webkit-transform: translateY(4em);
+    -ms-transform: translateY(4em);
+    transform: translateY(4em);
+}
+
+@media screen and (min-width:50em) {
+    .btt {
+        display: block;
+    }
+}
+
+@media screen and (min-width:65em) {
+    .btt {
+        left: .5em;
+    }
+}
+
+.slide {
+    -webkit-transition: all .5s linear;
+    -moz-transition: all .5s linear;
+    -o-transition: all .5s linear;
+    transition: all .5s linear;
+}
+
+.slide--reset {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+}
+
+.slide--up {
+    -webkit-transform: translateY(-4em);
+    -ms-transform: translateY(-4em);
+    transform: translateY(-4em);
+}
+
+.slide--down {
+    -webkit-transform: translateY(4em);
+    -ms-transform: translateY(4em);
+    transform: translateY(4em);
+}
+
+.headroom-title {
+    font-size: 2.5em;
+}
+
+@media(min-width:30em) {
+    .headroom-title {
+        font-size: 3.5em;
+    }
+}
+
+@media screen and (min-width:40em) {
+    .headroom-title {
+        font-size: 4.5em;
+    }
+}
+
+.icon:before {
+    font-size: .9em;
+    display: inline-block;
+    height: 1em;
+    width: 1em;
+    line-height: 1;
+}
+
+.icon--up:before {
+    content: "\25B2";
+}
+
+.sharing {
+    margin-top: 2em;
+}
+
+.sharing__button {
+    font-size: .8em;
+}
+
+@media screen and (min-width:40em) {
+    .sharing__button {
+        font-size: .9em;
+    }
+}
+
+@media screen and (min-width:50em) {
+    .sharing__button {
+        font-size: 1em;
+    }
+}
+
+.form {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    padding: 1em;
+    border-radius: .3em;
+    background-color: #dee2e6;
+}
+
+.question-set {
+    border: 0;
+    padding: 0;
+    margin-bottom: 1.5em;
+}
+
+.question-set__title {
+    display: block;
+    margin-bottom: .75em;
+}
+
+.question-set__input {
+    width: 100%;
+    padding: .25em;
+    border: 1px solid #a4afba;
+}
+
+.question-set__input:focus {
+    outline: 0;
+    box-shadow: #4ecdc4 0 0 3px 0;
+}
+
+.question-set__label {
+    display: inline-block;
+    margin-bottom: .25em;
+}
+
+.question-set__label--block {
+    display: block;
+}
+
+.question-set__label input[type=radio] {
+    margin-right: .75em;
+}
+
+:not(pre)>code {
+    background-color: #d0d5db;
+    padding: .3em .2em .1em;
+    border-radius: .25em;
+}
+
+p+h2,p+h3 {
+    margin-top: 1.5em;
+}
+
+.complimentary {
+    display: none;
+}
+
+@media screen and (min-width:40em) {
+    .complimentary {
+        display: inline;
+    }
+}
+
+.subdued {
+    color: rgba(255,255,255,0.6);
+    text-shadow: none;
+}
+
+a.subdued:hover {
+    color: #fff;
+}
+
+.animated {
+    -webkit-animation-duration: .5s;
+    -moz-animation-duration: .5s;
+    -o-animation-duration: .5s;
+    animation-duration: .5s;
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+    -o-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@-webkit-keyframes slideDown {
+    0% {
+        -webkit-transform: translateY(-4em);
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+    }
+}
+
+@-moz-keyframes slideDown {
+    0% {
+        -moz-transform: translateY(-4em);
+    }
+
+    100% {
+        -moz-transform: translateY(0);
+    }
+}
+
+@-o-keyframes slideDown {
+    0% {
+        -o-transform: translateY(-4em);
+    }
+
+    100% {
+        -o-transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    0% {
+        transform: translateY(-4em);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.animated.slideDown {
+    -webkit-animation-name: slideDown;
+    -moz-animation-name: slideDown;
+    -o-animation-name: slideDown;
+    animation-name: slideDown;
+}
+
+@-webkit-keyframes slideUp {
+    0% {
+        -webkit-transform: translateY(0);
+    }
+
+    100% {
+        -webkit-transform: translateY(-4em);
+    }
+}
+
+@-moz-keyframes slideUp {
+    0% {
+        -moz-transform: translateY(0);
+    }
+
+    100% {
+        -moz-transform: translateY(-4em);
+    }
+}
+
+@-o-keyframes slideUp {
+    0% {
+        -o-transform: translateY(0);
+    }
+
+    100% {
+        -o-transform: translateY(-4em);
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-4em);
+    }
+}
+
+.animated.slideUp {
+    -webkit-animation-name: slideUp;
+    -moz-animation-name: slideUp;
+    -o-animation-name: slideUp;
+    animation-name: slideUp;
+}
+
+@-webkit-keyframes swingInX {
+    0% {
+        -webkit-transform: perspective(400px) rotateX(-90deg);
+    }
+
+    100% {
+        -webkit-transform: perspective(400px) rotateX(0deg);
+    }
+}
+
+@-moz-keyframes swingInX {
+    0% {
+        -moz-transform: perspective(400px) rotateX(-90deg);
+    }
+
+    100% {
+        -moz-transform: perspective(400px) rotateX(0deg);
+    }
+}
+
+@-o-keyframes swingInX {
+    0% {
+        -o-transform: perspective(400px) rotateX(-90deg);
+    }
+
+    100% {
+        -o-transform: perspective(400px) rotateX(0deg);
+    }
+}
+
+@keyframes swingInX {
+    0% {
+        transform: perspective(400px) rotateX(-90deg);
+    }
+
+    100% {
+        transform: perspective(400px) rotateX(0deg);
+    }
+}
+
+.animated.swingInX {
+    -webkit-transform-origin: top;
+    -moz-transform-origin: top;
+    -ie-transform-origin: top;
+    -o-transform-origin: top;
+    transform-origin: top;
+    -webkit-backface-visibility: visible!important;
+    -webkit-animation-name: swingInX;
+    -moz-backface-visibility: visible!important;
+    -moz-animation-name: swingInX;
+    -o-backface-visibility: visible!important;
+    -o-animation-name: swingInX;
+    backface-visibility: visible!important;
+    animation-name: swingInX;
+}
+
+@-webkit-keyframes swingOutX {
+    0% {
+        -webkit-transform: perspective(400px) rotateX(0deg);
+    }
+
+    100% {
+        -webkit-transform: perspective(400px) rotateX(-90deg);
+    }
+}
+
+@-moz-keyframes swingOutX {
+    0% {
+        -moz-transform: perspective(400px) rotateX(0deg);
+    }
+
+    100% {
+        -moz-transform: perspective(400px) rotateX(-90deg);
+    }
+}
+
+@-o-keyframes swingOutX {
+    0% {
+        -o-transform: perspective(400px) rotateX(0deg);
+    }
+
+    100% {
+        -o-transform: perspective(400px) rotateX(-90deg);
+    }
+}
+
+@keyframes swingOutX {
+    0% {
+        transform: perspective(400px) rotateX(0deg);
+    }
+
+    100% {
+        transform: perspective(400px) rotateX(-90deg);
+    }
+}
+
+.animated.swingOutX {
+    -webkit-transform-origin: top;
+    -webkit-animation-name: swingOutX;
+    -webkit-backface-visibility: visible!important;
+    -moz-animation-name: swingOutX;
+    -moz-backface-visibility: visible!important;
+    -o-animation-name: swingOutX;
+    -o-backface-visibility: visible!important;
+    animation-name: swingOutX;
+    backface-visibility: visible!important;
+}
+
+@-webkit-keyframes flipInX {
+    0% {
+        -webkit-transform: perspective(400px) rotateX(90deg);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: perspective(400px) rotateX(0deg);
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes flipInX {
+    0% {
+        -moz-transform: perspective(400px) rotateX(90deg);
+        opacity: 0;
+    }
+
+    100% {
+        -moz-transform: perspective(400px) rotateX(0deg);
+        opacity: 1;
+    }
+}
+
+@-o-keyframes flipInX {
+    0% {
+        -o-transform: perspective(400px) rotateX(90deg);
+        opacity: 0;
+    }
+
+    100% {
+        -o-transform: perspective(400px) rotateX(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes flipInX {
+    0% {
+        transform: perspective(400px) rotateX(90deg);
+        opacity: 0;
+    }
+
+    100% {
+        transform: perspective(400px) rotateX(0deg);
+        opacity: 1;
+    }
+}
+
+.animated.flipInX {
+    -webkit-backface-visibility: visible!important;
+    -webkit-animation-name: flipInX;
+    -moz-backface-visibility: visible!important;
+    -moz-animation-name: flipInX;
+    -o-backface-visibility: visible!important;
+    -o-animation-name: flipInX;
+    backface-visibility: visible!important;
+    animation-name: flipInX;
+}
+
+@-webkit-keyframes flipOutX {
+    0% {
+        -webkit-transform: perspective(400px) rotateX(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: perspective(400px) rotateX(90deg);
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes flipOutX {
+    0% {
+        -moz-transform: perspective(400px) rotateX(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        -moz-transform: perspective(400px) rotateX(90deg);
+        opacity: 0;
+    }
+}
+
+@-o-keyframes flipOutX {
+    0% {
+        -o-transform: perspective(400px) rotateX(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        -o-transform: perspective(400px) rotateX(90deg);
+        opacity: 0;
+    }
+}
+
+@keyframes flipOutX {
+    0% {
+        transform: perspective(400px) rotateX(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: perspective(400px) rotateX(90deg);
+        opacity: 0;
+    }
+}
+
+.animated.flipOutX {
+    -webkit-animation-name: flipOutX;
+    -webkit-backface-visibility: visible!important;
+    -moz-animation-name: flipOutX;
+    -moz-backface-visibility: visible!important;
+    -o-animation-name: flipOutX;
+    -o-backface-visibility: visible!important;
+    animation-name: flipOutX;
+    backface-visibility: visible!important;
+}
+
+@-webkit-keyframes bounceInDown {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(-200px);
+    }
+
+    60% {
+        opacity: 1;
+        -webkit-transform: translateY(30px);
+    }
+
+    80% {
+        -webkit-transform: translateY(-10px);
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+    }
+}
+
+@-moz-keyframes bounceInDown {
+    0% {
+        opacity: 0;
+        -moz-transform: translateY(-200px);
+    }
+
+    60% {
+        opacity: 1;
+        -moz-transform: translateY(30px);
+    }
+
+    80% {
+        -moz-transform: translateY(-10px);
+    }
+
+    100% {
+        -moz-transform: translateY(0);
+    }
+}
+
+@-o-keyframes bounceInDown {
+    0% {
+        opacity: 0;
+        -o-transform: translateY(-200px);
+    }
+
+    60% {
+        opacity: 1;
+        -o-transform: translateY(30px);
+    }
+
+    80% {
+        -o-transform: translateY(-10px);
+    }
+
+    100% {
+        -o-transform: translateY(0);
+    }
+}
+
+@keyframes bounceInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-200px);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translateY(30px);
+    }
+
+    80% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.animated.bounceInDown {
+    -webkit-animation-name: bounceInDown;
+    -moz-animation-name: bounceInDown;
+    -o-animation-name: bounceInDown;
+    animation-name: bounceInDown;
+}
+
+@-webkit-keyframes bounceOutUp {
+    0% {
+        -webkit-transform: translateY(0);
+    }
+
+    30% {
+        opacity: 1;
+        -webkit-transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: translateY(-200px);
+    }
+}
+
+@-moz-keyframes bounceOutUp {
+    0% {
+        -moz-transform: translateY(0);
+    }
+
+    30% {
+        opacity: 1;
+        -moz-transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 0;
+        -moz-transform: translateY(-200px);
+    }
+}
+
+@-o-keyframes bounceOutUp {
+    0% {
+        -o-transform: translateY(0);
+    }
+
+    30% {
+        opacity: 1;
+        -o-transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 0;
+        -o-transform: translateY(-200px);
+    }
+}
+
+@keyframes bounceOutUp {
+    0% {
+        transform: translateY(0);
+    }
+
+    30% {
+        opacity: 1;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-200px);
+    }
+}
+
+.animated.bounceOutUp {
+    -webkit-animation-name: bounceOutUp;
+    -moz-animation-name: bounceOutUp;
+    -o-animation-name: bounceOutUp;
+    animation-name: bounceOutUp;
+}
+
+      
+    </style>
+    <meta name="description" content="Headroom.js is a lightweight, pure JS widget for hiding elements until needed. Give your pages some headroom">
+    <meta property="og:title" content="Headroom.js - Give your pages some headroom. Hide your header until you need it.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://wicky.nillia.ms/headroom.js/">
+    <meta name="twitter:creator" content="@WickyNilliams">
+    <meta name="twitter:card" content="summary">
+</head>
+<body>
+
+<header id="header" class="header header--fixed hide-from-print animated slideDown" role="banner">
+    <div class="container">
+    
+        <nav id="nav" class="nav-wrapper" role="navigation">
+            <ul class="nav nav--main">
+                <li class="nav__item ">
+                    <a class="header__link subdued" href="https://www.github.com/WickyNilliams/headroom.js">
+                        <span aria-hidden="true" class="icon icon--github"></span>
+                        <span class="complimentary push--left">GitHub</span>
+                    </a>
+                </li>
+                <li class="nav__item ">
+                    <a class="header__link subdued" href="http://www.twitter.com/WickyNilliams">
+                        <span aria-hidden="true" class="icon icon--twitter"></span>
+                        <span class="complimentary push--left">@WickyNilliams</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <a href="./headroom_files/headroom.html" class="brand header__link">
+            <b class="brand__forename">Headroom</b><b class="brand__surname">.js</b>
+        </a>
+    </div>
+</header>
+
+<article>
+<header class="feature">
+    <div class="container container--wide feature-title">
+        <h1 class="feature-title__title headroom-title">Headroom.js</h1>
+        <p class="feature-title__subtitle">Give your pages some headroom. Hide your header until you need it.</p>
+    </div>
+</header>
+
+<div class="container block main" role="main">
+
+<h2>Downloads</h2>
+<div class="downloads" style="margin-bottom:1em">
+    <div class="grid">
+        <div class="grid__item one-half"><a class="btn btn--secondary btn--full" href="https://raw.github.com/WickyNilliams/headroom.js/master/dist/headroom.js">Development <span class="complimentary subdued">(3.7kB)</span></a></div>
+        <div class="grid__item one-half"><a class="btn btn--secondary btn--full" href="https://raw.github.com/WickyNilliams/headroom.js/master/dist/headroom.min.js">Production <span class="complimentary subdued">(1.7kB)</span></a></div>
+    </div>
+</div>
+
+<h2>What's it all about?</h2>
+
+<p>Headroom.js is a lightweight, high-performance JS widget (with no dependencies!) that allows you to react to the user's scroll. The header on this site is a living example, it slides out of view when scrolling down and slides back in when scrolling up.</p>
+
+<h3>Why use it?</h3>
+
+<p>Fixed headers are a popular approach for keeping the primary navigation in close proximity to the user. This can reduce the effort required for a user to quickly navigate a site, but they are not without problems… </p>
+
+<p>Large screens are usually landscape-oriented, meaning less vertical than horizontal space. A fixed header can therefore occupy a significant portion of the content area. Small screens are typically used in a portrait orientation. Whilst this results in more vertical space, because of the overall height of the screen a meaningfully-sized header can still be quite imposing.</p>
+
+<p>Headroom.js allows you to bring elements into view when appropriate, and give focus to your content the rest of the time.</p>
+
+<h3>How does it work?</h3>
+
+<p>At it's most basic headroom.js simply adds and removes CSS classes from an element in response to a scroll event:</p>
+
+<pre class=" language-markup"><code class=" language-markup"><span class="token comment" spellcheck="true">&lt;!-- initially --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>headroom<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+
+<span class="token comment" spellcheck="true">&lt;!-- scrolling down --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>headroom headroom--unpinned<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+
+<span class="token comment" spellcheck="true">&lt;!-- scrolling up --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>headroom headroom--pinned<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+
+<p>Relying on CSS classes affords headroom.js incredible flexibility. The choice of what to do when scrolling up or down is now entirely yours - anything you can do with CSS you can do in response to the user's scroll.</p>
+
+<h2>Usage</h2>
+
+<p>Using headroom.js is really simple. It has a pure JS API, and an optional jQuery/Zepto-compatible plugin.</p>
+
+<h3>With pure JS</h3>
+
+<pre class=" language-javascript"><code class=" language-javascript"><span class="token comment" spellcheck="true">// grab an element
+</span><span class="token keyword">var</span> myElement <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector<span class="token punctuation">(</span></span><span class="token string">"header"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">
+// construct an instance of Headroom, passing the element
+</span><span class="token keyword">var</span> headroom  <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Headroom</span><span class="token punctuation">(</span>myElement<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">
+// initialise
+</span>headroom<span class="token punctuation">.</span><span class="token function">init<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+</code></pre>
+
+<h3>With jQuery/Zepto</h3>
+
+<pre class=" language-javascript"><code class=" language-javascript"><span class="token comment" spellcheck="true">// simple as this!
+</span><span class="token comment" spellcheck="true">// NOTE: init() is implicitly called with the plugin
+</span>$<span class="token punctuation">(</span><span class="token string">"#header"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">headroom<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+
+<p>The plugin also offers a data-* API if you prefer a declarative approach.</p>
+
+<pre class=" language-markup"><code class=" language-markup"><span class="token comment" spellcheck="true">&lt;!-- selects $("[data-headroom]") --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span> <span class="token attr-name">data-headroom</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+
+<p>Note: Zepto's additional <a href="https://github.com/madrobby/zepto#zepto-modules" title="https://github.com/madrobby/zepto#zepto-modules">data module</a> is required for compatibility.</p>
+
+<h3>Options</h3>
+
+<p>Headroom.js can also accept an options object to alter the way it behaves. You can see the default options by inspecting <code>Headroom.options</code>. The structure of an options object is as follows:</p>
+
+<pre class=" language-javascript"><code class=" language-javascript"><span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> // vertical offset in px before element is first unpinned
+</span>    offset <span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+   <span class="token comment" spellcheck="true"> // scroll tolerance in px before state changes
+</span>    tolerance <span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+   <span class="token comment" spellcheck="true"> // css classes to apply
+</span>    classes <span class="token punctuation">:</span> <span class="token punctuation">{</span>
+       <span class="token comment" spellcheck="true"> // when element is initialised
+</span>        initial <span class="token punctuation">:</span> <span class="token string">"headroom"</span><span class="token punctuation">,</span>
+       <span class="token comment" spellcheck="true"> // when scrolling up
+</span>        pinned <span class="token punctuation">:</span> <span class="token string">"headroom--pinned"</span><span class="token punctuation">,</span>
+       <span class="token comment" spellcheck="true"> // when scrolling down
+</span>        unpinned <span class="token punctuation">:</span> <span class="token string">"headroom--unpinned"</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+
+    <h2>Examples</h2>
+    <p>
+        Head over to the <a href="http://wicky.nillia.ms/headroom.js/playroom/">headroom.js playroom</a> if you want see some example usages. There you can tweak all of headroom's options and apply different CSS effects in an interactive demo.
+    </p>
+
+    <h2>License</h2>
+    <p>
+        Licensed under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a>.
+    </p>
+
+  <div class="sharing">
+    <h2>Share this on:</h2>
+    <div class="grid">
+      <div class="grid__item one-third">
+        <a class="sharing__button btn btn--secondary btn--full" href="http://facebook.com/sharer.php?u=http://wicky.nillia.ms/headroom.js/">Facebook</a>
+      </div>
+      <div class="grid__item one-third">
+        <a class="sharing__button btn btn--secondary btn--full" href="http://twitter.com/intent/tweet?url=http://wicky.nillia.ms/headroom.js/&text=Headroom.js.%20Give%20your%20pages%20some%20headroom&via=WickyNilliams">Twitter</a>
+      </div>
+      <div class="grid__item one-third">
+        <a class="sharing__button btn btn--secondary btn--full" href="https://plus.google.com/share?url=http://wicky.nillia.ms/headroom.js/">Google+</a>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+    <a class="btt btn btn--plain hide-from-print slide slide--reset" href="http://wicky.nillia.ms/headroom.js/#" id="btt">Top <i class="icon icon--up"></i></a>
+</article>
+
+<script src="js/headroom.min.js"></script>
+<script>
+(function() {
+    var header = new Headroom(document.querySelector("#header"), {
+        tolerance: 5,
+        offset : 205,
+        classes: {
+          initial: "animated",
+          pinned: "slideDown",
+          unpinned: "slideUp"
+        }
+    });
+    header.init();
+
+    var bttHeadroom = new Headroom(document.getElementById("btt"), {
+        tolerance : 0,
+        offset : 500,
+        classes : {
+            initial : "slide",
+            pinned : "slide--reset",
+            unpinned : "slide--down"
+        }
+    });
+    bttHeadroom.init();
+}());
+</script>
+
+
+</body></html>
