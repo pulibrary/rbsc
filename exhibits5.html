@@ -485,7 +485,7 @@
      
       var header = new Headroom(document.querySelector("#header"), {
           tolerance: 0,
-          offset : 0,
+          offset : 50,
           classes: {
             initial: "animated",
             pinned: "slideDown",
@@ -577,6 +577,8 @@
         prefixUrl: "images/",
         preserveViewport: true,
         showNavigator:  true,
+        navigatorHeight:  150,
+        navigatorWidth:  225,
         visibilityRatio: 1,
         minZoomLevel: 1,
         tileSources: []
