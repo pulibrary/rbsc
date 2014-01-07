@@ -415,6 +415,7 @@ padding-right: 13px;
 .grid-img-hover {
   border-width:1px;
   border-style: solid;
+  border-color: #F58026;
 }
 
 .grid-text{
@@ -457,6 +458,22 @@ padding-right: 13px;
   color: #666666;
   letter-spacing: .1em;
   font-size: 14px;
+}
+
+.grid-text-box h2{
+  background: #333;
+  height: auto;
+  width: auto;
+  left: 0;
+  margin: 10px;
+  padding: 10px;
+  position: absolute;
+  top: 0;
+  text-align: left;
+  color: white;
+  letter-spacing: .1em;
+  font-size: 14px;
+  border-radius: 6px 0px 0px 0px;
 }
 
 #welcome {
