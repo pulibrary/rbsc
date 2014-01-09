@@ -58,7 +58,8 @@
             </div>
         </div>
       <!-- Fixed navbar -->
-      <div class="navbar navbar-default navbar-fixed-top">
+
+      <div class="navbar navbar-default navbar-fixed-top rbsc">
         <div class="container">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -88,8 +89,8 @@
                   <li><a href="#">Departmental Blogs</a></li>
                 </ul>
               </li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle bigdrop" data-toggle="dropdown">Collections <b class="caret"></b></a>
+              <li class="dropdown active">
+                <a href="#" class="dropdown-toggle bigdrop" data-toggle="dropdown"><span class="menu-text">Collections</span> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li class="dropdown-header">Harvey S. Firestone Library</li>
                   <li><a href="#">Cotsen Children's Library</a></li>
@@ -149,8 +150,15 @@
             </div><!-- /input-group -->
             
           </div><!--/.nav-collapse -->
+          
+                <ol class="breadcrumb">
+                  <li><a href="#">Firestone Library</a></li>
+                  <li><a href="#">Manuscripts Division</a></li>
+                </ol>
+          
         </div>
       </div>
+
 
       <!-- Begin page content -->
       <div id="main" class="container">
@@ -466,6 +474,13 @@
         }
       });
       
+      var m = $( ".menu-text" );
+      var b = $( ".breadcrumb" );
+      var offset = m.offset();
+      b.css( "left", offset.left - 68);
+      b.css( "top", offset.top + 15);
+      b.show();
+
     </script>
   </body>
 </html>

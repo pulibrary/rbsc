@@ -639,3 +639,37 @@ background-color: #fff;
   color: white;
   background-color: #333333;
 }
+
+.rbsc {
+  border-bottom-color: #e5807b;
+  border-bottom-width: 5px;
+}
+
+.nav > li.active > .bigdrop {
+  background-color: transparent;
+}
+
+.nav > li.active > .bigdrop > .menu-text {
+  border-bottom-style:solid;
+  border-bottom-color:#e5807b;
+}
+
+
+.navbar  ol.breadcrumb > li > a {
+  color: #e5807b;
+}
+
+.navbar ol.breadcrumb {
+  display: none;
+  position: absolute;
+  z-index:1000;
+  background: transparent;
+  margin:0;
+}
+
+/*
+.dropdown > ol.breadcrumb {
+  margin-bottom: 0px;
+  margin-top: -40px;
+}
+*/
