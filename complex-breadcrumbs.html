@@ -59,7 +59,7 @@
         </div>
       <!-- Fixed navbar -->
 
-      <div class="navbar navbar-default navbar-fixed-top">
+      <div class="navbar navbar-default navbar-fixed-top rbsc">
         <div class="container">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -151,33 +151,29 @@
             
           </div><!--/.nav-collapse -->
           
+                <ol class="breadcrumb">
+                  <li><a href="#">Firestone Library</a></li>
+                  <li><a href="#">Manuscripts Division</a></li>
+                </ol>
+          
         </div>
       </div>
-      
-      <div class="rbsc">
-        <ol class="container breadcrumb">
-          <li><a href="#">Collections</a></li>
-          <li><a href="#">Firestone Library</a></li>
-          <li class="active"><a href="#">Manuscripts Division</a></li>
-        </ol>
-      </div>
-      
+
+
       <!-- Begin page content -->
       <div id="main" class="container">
-        
         <div class="row">
           <div class="col-md-3 leftcol">
             <div class="bs-sidebar hidden-print">
               <h3>Manuscripts Division</h3>
               <div class="dottedfloat"></div>
-                <img src="img/mss.jpg" alt="Firestone Library: Home of Manuscripts Division" class="img-thumbnail">
                 <!-- Contact -->
                 <address>Manuscripts Division<br>One Washington Road<br>Princeton, New Jersey 08544<br>Phone: <a href="tel:+1-609-258-3184">(609) 258-3184</a>
                 <br>Fax: (609) 258-2324</address>
                 <address><strong>Don C. Skemer</strong><br><em>Curator of Manuscripts</em><br>Firestone 1-16-E<br><a href="">Contact via web form</a></address>
                 <!-- Hours -->
-                
-                <p class="hours"><span class="glyphicon glyphicon-time"></span> Open today from 8:00 am to 9:00 pm.</p>
+                <div class="dottedfloat"></div>
+                <p class="hours">Open today from 8:00 am to 9:00pm.</p>
                 <div class="dottedfloat"></div>
                 <h4>Academic Year Hours</h4>
                 <div class="dottedfloat"></div>
@@ -355,15 +351,14 @@
           </div>
           
           <div id="right-col" class="col-md-4">
-            <!--
             <img src="img/mss.jpg" alt="Firestone Library: Home of Manuscripts Division" class="img-thumbnail">
             <small>The Manuscripts Division is located in <a href="https://library.princeton.edu/libraries/firestone">Firestone Library</a></small>
             <p>Non-essentials, Events, blog posts, and Social Media info goes here... may be hidden on mobile</p>
-            -->
+            
             <!-- Blog Roll -->
             <div class="dottedfloat"></div>
             <h4><span class="glyphicon glyphicon-bullhorn"></span> New and Notable</h4>
-            <div class="dottedfloat" style="padding-bottom: 10px;"></div>
+            <div class="dottedfloat"></div>
             
             <div class="row odd">
             <h5><a href="">Fitzgerald's Princeton Novel Goes Online</a></h5>
@@ -478,6 +473,13 @@
           $( this ).removeClass( "media-hover" );
         }
       });
+      
+      var m = $( ".menu-text" );
+      var b = $( ".breadcrumb" );
+      var offset = m.offset();
+      b.css( "left", offset.left - 68);
+      b.css( "top", offset.top + 15);
+      b.show();
 
     </script>
   </body>
